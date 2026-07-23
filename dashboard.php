@@ -79,7 +79,7 @@ require_once __DIR__ . '/includes/layout.php';
 <div class="grid grid-2" style="margin-top:20px">
     <div class="card">
         <h3>Recent Notices</h3>
-        <table>
+        <div class="table-wrap"><table>
             <tr><th>Title</th><th>Priority</th><th>Date</th></tr>
             <?php foreach ($notices as $n): ?>
             <tr>
@@ -88,7 +88,7 @@ require_once __DIR__ . '/includes/layout.php';
                 <td><?= date('d M Y', strtotime($n['created_at'])) ?></td>
             </tr>
             <?php endforeach; ?>
-        </table>
+        </table></div>
     </div>
     <div class="card">
         <h3>Quick Actions</h3>

@@ -218,7 +218,7 @@ function dayNum($d) {
             <div class="faculty-card <?= $isHod ? 'featured-hod' : '' ?> reveal">
                 <div class="faculty-img" style="--fc: <?= $f['color'] ?>">
                     <?php if (!empty($f['photo'])): ?>
-                    <img class="faculty-photo" src="<?= base_url() ?>/assets/images/faculty/<?= e($f['photo']) ?>" alt="<?= e($f['name']) ?>">
+                    <img class="faculty-photo" src="<?= base_url() ?>/assets/images/faculty/<?= rawurlencode($f['photo']) ?>" alt="<?= e($f['name']) ?>">
                     <?php endif; ?>
                     <span class="faculty-initial"><?= $f['initial'] ?></span>
                     <?php if ($isHod): ?>

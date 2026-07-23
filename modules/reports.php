@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/auth.php';
 require_role(['admin','hod','tpo']);
 require_once __DIR__ . '/../includes/functions.php';
@@ -52,7 +52,7 @@ require_once __DIR__ . '/../includes/layout.php';
 
 <div class="card" style="margin-top:20px">
     <h3>Attendance Summary</h3>
-    <table>
+    <div class="table-wrap"><table>
         <tr><th>Roll No</th><th>Student</th><th>Present</th><th>Total</th><th>%</th></tr>
         <?php foreach ($attendanceSummary as $a): ?>
         <tr>
@@ -63,17 +63,17 @@ require_once __DIR__ . '/../includes/layout.php';
             <td><?= $a['total']>0 ? round($a['present']/$a['total']*100,1) : 0 ?>%</td>
         </tr>
         <?php endforeach; ?>
-    </table>
+    </table></div>
 </div>
 
 <div class="card">
     <h3>Course-wise Average Marks</h3>
-    <table>
+    <div class="table-wrap"><table>
         <tr><th>Course</th><th>Entries</th><th>Average %</th></tr>
         <?php foreach ($courseMarks as $c): ?>
         <tr><td><?= e($c['course_name']) ?></td><td><?= $c['entries'] ?></td><td><?= $c['avg_pct'] ?>%</td></tr>
         <?php endforeach; ?>
-    </table>
+    </table></div>
 </div>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 

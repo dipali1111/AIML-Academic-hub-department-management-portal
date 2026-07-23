@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/auth.php';
 require_role(['admin','hod','faculty','tpo']);
 require_once __DIR__ . '/../includes/functions.php';
@@ -78,7 +78,7 @@ require_once __DIR__ . '/../includes/layout.php';
 
 <div class="card">
     <h3>All Patents (<?= count($patents) ?>)</h3>
-    <table>
+    <div class="table-wrap"><table>
         <tr><th>Title</th><th>Inventors</th><th>App No</th><th>Filed</th><th>Status</th><th>Faculty</th><th>Actions</th></tr>
         <?php foreach ($patents as $p): ?>
         <tr>
@@ -97,7 +97,7 @@ require_once __DIR__ . '/../includes/layout.php';
             </td>
         </tr>
         <?php endforeach; ?>
-    </table>
+    </table></div>
 </div>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 

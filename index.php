@@ -56,7 +56,7 @@ function dayNum($d) {
 <body>
 
 <!-- ===================== PAGE LOADER ===================== -->
-<div class="page-loader" id="pageLoader">
+<div class="page-loader page-loader--centered" id="pageLoader">
     <img class="loader-logo" src="<?= base_url() ?>/assets/images/zeal-logo.png" alt="Zeal Institute of Technology">
     <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
 </div>
@@ -223,7 +223,7 @@ function dayNum($d) {
             <div class="faculty-card <?= $isHod ? 'featured-hod' : '' ?> reveal">
                 <div class="faculty-img" style="--fc: <?= $f['color'] ?>">
                     <?php if (!empty($f['photo'])): ?>
-                    <img class="faculty-photo" src="<?= base_url() ?>/assets/images/faculty/<?= e($f['photo']) ?>" alt="<?= e($f['name']) ?>">
+                    <img class="faculty-photo" src="<?= base_url() ?>/assets/images/faculty/<?= rawurlencode($f['photo']) ?>" alt="<?= e($f['name']) ?>">
                     <?php endif; ?>
                     <span class="faculty-initial"><?= $f['initial'] ?></span>
                     <?php if ($isHod): ?>

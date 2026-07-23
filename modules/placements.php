@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/auth.php';
 require_role(['admin','hod','student','tpo']);
 require_once __DIR__ . '/../includes/functions.php';
@@ -102,7 +102,7 @@ require_once __DIR__ . '/../includes/layout.php';
 
 <div class="card">
     <h3>Placement Records (<?= count($placements) ?>)</h3>
-    <table>
+    <div class="table-wrap"><table>
         <tr><th>Company</th><th>Drive</th><th>Date</th><th>Position</th><th>Package</th><th>Student</th><th>Status</th><?php if ($canManage): ?><th>Actions</th><?php endif; ?></tr>
         <?php foreach ($placements as $p): ?>
         <tr>
@@ -124,7 +124,7 @@ require_once __DIR__ . '/../includes/layout.php';
             <?php endif; ?>
         </tr>
         <?php endforeach; ?>
-    </table>
+    </table></div>
 </div>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 

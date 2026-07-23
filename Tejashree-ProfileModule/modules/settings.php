@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/auth.php';
 require_login();
 require_once __DIR__ . '/../includes/functions.php';
@@ -94,7 +94,7 @@ require_once __DIR__ . '/../includes/layout.php';
 
 <div class="card">
     <h3>All Users</h3>
-    <table>
+    <div class="table-wrap"><table>
         <tr><th>Username</th><th>Name</th><th>Role</th><th>Email</th><th>Status</th><th>Actions</th></tr>
         <?php foreach ($users as $u): ?>
         <tr>
@@ -117,7 +117,7 @@ require_once __DIR__ . '/../includes/layout.php';
             </td>
         </tr>
         <?php endforeach; ?>
-    </table>
+    </table></div>
 </div>
 <?php endif; ?>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
