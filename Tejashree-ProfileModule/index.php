@@ -329,8 +329,8 @@ function dayNum($d) {
             <div class="footer-col">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="mailto:contact@aiml.edu">contact@aiml.edu</a></li>
-                    <li><a href="tel:+919999000000">+91 9999 0000 00</a></li>
+                    <li><a href="mailto:zcoer@zealeducation.com">zcoer@zealeducation.com</a></li>
+                    <li><a href="tel:+917558666663">+91 7558666663</a></li>
                     <li>Institute Campus, Pune</li>
                 </ul>
             </div>
