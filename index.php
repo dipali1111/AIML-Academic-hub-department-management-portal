@@ -11,21 +11,20 @@ function svgIcon($path, $sw = 2) {
 }
 $faculty = [
     ['name' => 'Dr. Dipali Shende',              'initial' => 'DS', 'color' => '#1d4ed8', 'photo' => 'Dr. Dipali Shende.png', 'desc' => 'Associate Professor & Head of Department at Zeal College of Engineering and Research. Former Associate Dean — Quality and Assurance. Savitribai Phule Pune University.'],
-    ['name' => 'Dr. Prasad Kamble',              'initial' => 'PK', 'color' => '#7c3aed', 'photo' => 'Dr.Prasad Kamble.png'],
-    ['name' => 'Prof. Pushkraj Ravindra Sonalkar','initial' => 'PR', 'color' => '#0891b2', 'photo' => 'Prof. Pushkraj Ravindra Sonalkar.png'],
-    ['name' => 'Prof. Rutuja Subhash Dhole',     'initial' => 'RD', 'color' => '#059669', 'photo' => 'Prof. Rutuja Subhash Dhole.png'],
-    ['name' => 'Prof. Surbhi Pravin Suryawanshi','initial' => 'SS', 'color' => '#d97706', 'photo' => 'Prof. Surbhi pravin Suryawanshi.png'],
-    ['name' => 'Prof. Vilas Pol',                'initial' => 'VP', 'color' => '#dc2626', 'photo' => 'Prof. Vilas Pol.png'],
-    ['name' => 'Prof. Manisha A. Devgunde',      'initial' => 'MD', 'color' => '#db2777', 'photo' => 'Prof.Manisha A. Devgunde.png'],
-    ['name' => 'Prof. Megha Bansode',            'initial' => 'MB', 'color' => '#0d9488', 'photo' => 'Prof.Megha Bansode.png'],
-    ['name' => 'Prof. Omkar Wadekar',            'initial' => 'OW', 'color' => '#2563eb', 'photo' => 'Prof.Omkar Wadekar.png'],
-    ['name' => 'Prof. Shrutika Soudagar',        'initial' => 'Sd', 'color' => '#9333ea', 'photo' => 'Prof.Shrutika Soudagar .png'],
-    ['name' => 'Prof. Venkatesh Shinde',         'initial' => 'VS', 'color' => '#16a34a', 'photo' => 'Prof.Venkatesh Shinde.png'],
+    ['name' => 'Prof. Pushkraj Ravindra Sonalkar','initial' => 'PR', 'color' => '#0891b2', 'photo' => 'prof. pushkraj ravindra sonalkar.jpeg'],
+    ['name' => 'Prof. Rutuja Dhole',             'initial' => 'RD', 'color' => '#059669', 'photo' => 'prof. rutuja dhole.jpeg'],
+    ['name' => 'Prof. Surbhi Suryawanshi',       'initial' => 'SS', 'color' => '#d97706', 'photo' => 'prof. surbhi suryawanshi.jpeg'],
+    ['name' => 'Prof. Omkar Wadekar',            'initial' => 'OW', 'color' => '#2563eb', 'photo' => 'prof. omkar wadekar.jpeg'],
+    ['name' => 'Prof. Shrutika Soudagar',        'initial' => 'Sd', 'color' => '#9333ea', 'photo' => 'prof.shrutika soudagar .jpeg'],
+    ['name' => 'Prof. Venkatesh Shinde',         'initial' => 'VS', 'color' => '#16a34a', 'photo' => 'prof. venkatesh santosh shinde .jpeg'],
+    ['name' => 'Prof. Manjiri Chumble',          'initial' => 'MC', 'color' => '#7c3aed', 'photo' => 'prof. manjiri chumble.jpeg'],
+    ['name' => 'Prof. Kajal Guddab',             'initial' => 'KG', 'color' => '#dc2626', 'photo' => 'prof. kajal guddab.jpeg'],
+    ['name' => 'Prof. Dipika Bhat',              'initial' => 'DB', 'color' => '#0d9488', 'photo' => 'prof.  dipika bhat.jpeg'],
 ];
 
 $stats = [
-    'students'   => 201,
-    'faculty'    => count($faculty),
+    'students'   => 500,
+    'faculty'    => 50,
     'projects'   => get_stats('projects'),
     'placements' => $pdo->query("SELECT COUNT(*) c FROM placements WHERE offer_status='selected'")->fetch()['c'],
 ];
@@ -103,11 +102,11 @@ function dayNum($d) {
     <div class="container">
         <div class="stats-grid">
             <div class="stat-item">
-                <span class="stat-num count" data-to="<?= $stats['students'] ?>">0</span>
+                <span class="stat-num count" data-to="<?= $stats['students'] ?>" data-suffix="+">0</span>
                 <span class="stat-label">Students Enrolled</span>
             </div>
             <div class="stat-item">
-                <span class="stat-num count" data-to="<?= $stats['faculty'] ?>">0</span>
+                <span class="stat-num count" data-to="<?= $stats['faculty'] ?>" data-suffix="+">0</span>
                 <span class="stat-label">Faculty Members</span>
             </div>
             <div class="stat-item">
@@ -391,7 +390,8 @@ function dayNum($d) {
     var counters = document.querySelectorAll('.count');
     function animateCount(el) {
         var to = parseInt(el.getAttribute('data-to'), 10) || 0;
-        if (to === 0) { el.textContent = '0'; return; }
+        var suffix = el.getAttribute('data-suffix') || '';
+        if (to === 0) { el.textContent = '0' + suffix; return; }
         var dur = 1100, start = null;
         function step(ts) {
             if (!start) start = ts;
@@ -399,6 +399,7 @@ function dayNum($d) {
             var eased = 1 - Math.pow(1 - p, 3);
             el.textContent = Math.round(eased * to).toLocaleString('en-IN');
             if (p < 1) requestAnimationFrame(step);
+            else el.textContent = Math.round(to).toLocaleString('en-IN') + suffix;
         }
         requestAnimationFrame(step);
     }
@@ -411,7 +412,9 @@ function dayNum($d) {
         counters.forEach(function(el) { co.observe(el); });
     } else {
         counters.forEach(function(el) {
-            el.textContent = (parseInt(el.getAttribute('data-to'), 10) || 0).toLocaleString('en-IN');
+            var val = parseInt(el.getAttribute('data-to'), 10) || 0;
+            var suffix = el.getAttribute('data-suffix') || '';
+            el.textContent = val.toLocaleString('en-IN') + suffix;
         });
     }
 })();
