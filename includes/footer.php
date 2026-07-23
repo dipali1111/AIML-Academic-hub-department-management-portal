@@ -81,6 +81,20 @@ function showToast(type, msg) {
 <?php if (!empty($_SESSION['flash'])): ?>
 showToast('<?= $_SESSION['flash']['type'] ?>', <?= json_encode($_SESSION['flash']['msg']) ?>);
 <?php unset($_SESSION['flash']); endif; ?>
+
+// --- Hide page loader ---
+(function(){
+    var loader = document.getElementById('pageLoader');
+    if (!loader) return;
+    var start = Date.now();
+    function hide() {
+        var elapsed = Date.now() - start;
+        var delay = Math.max(0, 700 - elapsed);
+        setTimeout(function(){ loader.classList.add('hidden'); }, delay);
+    }
+    if (document.readyState === 'complete') hide();
+    else window.addEventListener('load', hide);
+})();
 </script>
 </body>
 </html>

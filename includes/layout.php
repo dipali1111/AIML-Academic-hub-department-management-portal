@@ -17,5 +17,10 @@ $active = $active ?? '';
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/style.css">
 </head>
 <body>
+<!-- ===================== PAGE LOADER ===================== -->
+<div class="page-loader" id="pageLoader">
+    <img class="loader-logo" src="<?= base_url() ?>/assets/images/zeal-logo.png" alt="Zeal Institute of Technology">
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
 <?php require_once __DIR__ . '/sidebar.php'; ?>
 <?php require_once __DIR__ . '/header.php'; ?>

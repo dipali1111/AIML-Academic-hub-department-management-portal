@@ -55,6 +55,12 @@ function dayNum($d) {
 </head>
 <body>
 
+<!-- ===================== PAGE LOADER ===================== -->
+<div class="page-loader" id="pageLoader">
+    <img class="loader-logo" src="<?= base_url() ?>/assets/images/zeal-logo.png" alt="Zeal Institute of Technology">
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
 <!-- ===================== NAVBAR ===================== -->
 <header class="site-header" id="siteHeader">
     <div class="container">
@@ -417,6 +423,20 @@ function dayNum($d) {
             el.textContent = val.toLocaleString('en-IN') + suffix;
         });
     }
+})();
+
+// --- Page loader ---
+(function(){
+    var loader = document.getElementById('pageLoader');
+    if (!loader) return;
+    var start = Date.now();
+    function hide() {
+        var elapsed = Date.now() - start;
+        var delay = Math.max(0, 700 - elapsed);
+        setTimeout(function(){ loader.classList.add('hidden'); }, delay);
+    }
+    if (document.readyState === 'complete') hide();
+    else window.addEventListener('load', hide);
 })();
 </script>
 </body>

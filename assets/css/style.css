@@ -774,3 +774,56 @@ body {
     .about-card, .feature-card, .faculty-card, .faculty-card.featured-hod, .update-card { transition: none !important; }
 }
 
+/* ============= PAGE LOADER ============= */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-logo {
+    height: 76px;
+    margin-bottom: 0;
+    opacity: 0;
+    animation: loader-fade-in 0.5s ease 0.05s forwards;
+}
+
+.loader-bar-wrap {
+    width: 200px;
+    height: 2px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    margin-top: 28px;
+    overflow: hidden;
+    opacity: 0;
+    animation: loader-fade-in 0.5s ease 0.15s forwards;
+}
+.loader-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    border-radius: 2px;
+    animation: loader-fill 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s forwards;
+}
+
+@keyframes loader-fade-in {
+    to { opacity: 1; }
+}
+@keyframes loader-fill {
+    0%   { width: 0%; }
+    40%  { width: 55%; }
+    70%  { width: 72%; }
+    100% { width: 88%; }
+}
+
