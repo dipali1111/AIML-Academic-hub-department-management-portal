@@ -2,9 +2,20 @@
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/functions.php';
 
-// Fetch landing data
-$notices = $pdo->query("SELECT * FROM notices ORDER BY created_at DESC LIMIT 3")->fetchAll();
-$events  = $pdo->query("SELECT * FROM events ORDER BY event_date ASC LIMIT 3")->fetchAll();
+// Fetch landing data safely when the database is unavailable.
+$notices = [];
+$events  = [];
+
+if ($pdo) {
+    try {
+        $notices = $pdo->query("SELECT * FROM notices ORDER BY created_at DESC LIMIT 3")->fetchAll();
+        $events  = $pdo->query("SELECT * FROM events ORDER BY event_date ASC LIMIT 3")->fetchAll();
+    } catch (PDOException $e) {
+        error_log('Landing page query failed: ' . $e->getMessage());
+        $notices = [];
+        $events  = [];
+    }
+}
 
 function svgIcon($path, $sw = 2) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' . $sw . '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $path . '</svg>';
@@ -26,8 +37,18 @@ $stats = [
     'students'   => 500,
     'faculty'    => 50,
     'projects'   => get_stats('projects'),
-    'placements' => $pdo->query("SELECT COUNT(*) c FROM placements WHERE offer_status='selected'")->fetch()['c'],
+    'placements' => 0,
 ];
+
+if ($pdo) {
+    try {
+        $stats['placements'] = $pdo->query("SELECT COUNT(*) c FROM placements WHERE offer_status='selected'")->fetch()['c'];
+    } catch (PDOException $e) {
+        error_log('Placements count query failed: ' . $e->getMessage());
+        $stats['placements'] = 0;
+    }
+}
+
 $publications = get_stats('publications');
 $patents       = get_stats('patents');
 

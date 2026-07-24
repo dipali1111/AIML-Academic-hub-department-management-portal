@@ -15,11 +15,13 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
+$pdo = null;
+
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
     error_log('Database connection failed: ' . $e->getMessage());
-    die('Database connection failed. Please try again later.');
+    $pdo = null;
 }
 
 // Site base URL helper (deployment-aware)
