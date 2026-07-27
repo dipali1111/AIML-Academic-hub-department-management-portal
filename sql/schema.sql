@@ -48,10 +48,18 @@ CREATE TABLE IF NOT EXISTS faculty (
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(100),
     phone VARCHAR(20),
+<<<<<<< HEAD
+=======
+    alt_phone VARCHAR(20) DEFAULT NULL,
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
     designation VARCHAR(50),
     department VARCHAR(50) DEFAULT 'AIML',
     qualification VARCHAR(100),
     joined_date DATE,
+<<<<<<< HEAD
+=======
+    address TEXT DEFAULT NULL,
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 );

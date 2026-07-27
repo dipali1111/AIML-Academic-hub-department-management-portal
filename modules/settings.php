@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿<?php
+=======
+<?php
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
 require_once __DIR__ . '/../includes/auth.php';
 require_login();
 require_once __DIR__ . '/../includes/functions.php';
@@ -94,7 +98,11 @@ require_once __DIR__ . '/../includes/layout.php';
 
 <div class="card">
     <h3>All Users</h3>
+<<<<<<< HEAD
     <table>
+=======
+    <div class="table-wrap"><table>
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
         <tr><th>Username</th><th>Name</th><th>Role</th><th>Email</th><th>Status</th><th>Actions</th></tr>
         <?php foreach ($users as $u): ?>
         <tr>
@@ -117,7 +125,11 @@ require_once __DIR__ . '/../includes/layout.php';
             </td>
         </tr>
         <?php endforeach; ?>
+<<<<<<< HEAD
     </table>
+=======
+    </table></div>
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
 </div>
 <?php endif; ?>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>

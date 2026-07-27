@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿<?php
+=======
+<?php
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
 require_once __DIR__ . '/../includes/auth.php';
 require_role(['admin','hod','faculty','student','tpo']);
 require_once __DIR__ . '/../includes/functions.php';
@@ -71,7 +75,11 @@ require_once __DIR__ . '/../includes/layout.php';
 
 <div class="card">
     <h3>All Notices (<?= count($notices) ?>)</h3>
+<<<<<<< HEAD
     <table>
+=======
+    <div class="table-wrap"><table>
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
         <tr><th>Title</th><th>Content</th><th>Priority</th><th>Posted By</th><th>Date</th><?php if ($canPost): ?><th>Actions</th><?php endif; ?></tr>
         <?php foreach ($notices as $n): ?>
         <tr>
@@ -91,7 +99,11 @@ require_once __DIR__ . '/../includes/layout.php';
             <?php endif; ?>
         </tr>
         <?php endforeach; ?>
+<<<<<<< HEAD
     </table>
+=======
+    </table></div>
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
 </div>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 
