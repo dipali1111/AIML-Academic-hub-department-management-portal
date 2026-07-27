@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿<?php
+=======
+<?php
+>>>>>>> b6df4ad04a8aa0ab8bde74ecb2f0ff952f1c32f4
 require_once __DIR__ . '/../includes/auth.php';
 require_role(['admin','hod','faculty','student']);
 require_once __DIR__ . '/../includes/functions.php';
@@ -76,7 +80,11 @@ require_once __DIR__ . '/../includes/layout.php';
 
 <div class="card">
     <h3>Marks Records (<?= count($marks) ?>)</h3>
+<<<<<<< HEAD
     <table>
+=======
+    <div class="table-wrap"><table>
+>>>>>>> b6df4ad04a8aa0ab8bde74ecb2f0ff952f1c32f4
         <tr><th>Roll No</th><th>Student</th><th>Course</th><th>Exam</th><th>Obtained</th><th>Max</th><th>%</th><?php if ($role!=='student'): ?><th>Action</th><?php endif; ?></tr>
         <?php foreach ($marks as $m): ?>
         <tr>
@@ -95,7 +103,11 @@ require_once __DIR__ . '/../includes/layout.php';
             <?php endif; ?>
         </tr>
         <?php endforeach; ?>
+<<<<<<< HEAD
     </table>
+=======
+    </table></div>
+>>>>>>> b6df4ad04a8aa0ab8bde74ecb2f0ff952f1c32f4
 </div>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 

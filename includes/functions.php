@@ -59,6 +59,15 @@ function show_flash() {
 
 function get_stats($table) {
     global $pdo;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    if (!$pdo) {
+        return 0;
+    }
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
+>>>>>>> b6df4ad04a8aa0ab8bde74ecb2f0ff952f1c32f4
     $stmt = $pdo->query("SELECT COUNT(*) AS c FROM $table");
     return $stmt->fetch()['c'];
 }

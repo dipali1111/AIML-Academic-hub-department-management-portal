@@ -81,6 +81,26 @@ function showToast(type, msg) {
 <?php if (!empty($_SESSION['flash'])): ?>
 showToast('<?= $_SESSION['flash']['type'] ?>', <?= json_encode($_SESSION['flash']['msg']) ?>);
 <?php unset($_SESSION['flash']); endif; ?>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+// --- Hide page loader ---
+(function(){
+    var loader = document.getElementById('pageLoader');
+    if (!loader) return;
+    var start = Date.now();
+    function hide() {
+        var elapsed = Date.now() - start;
+        var delay = Math.max(0, 700 - elapsed);
+        setTimeout(function(){ loader.classList.add('hidden'); }, delay);
+    }
+    if (document.readyState === 'complete') hide();
+    else window.addEventListener('load', hide);
+})();
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
+>>>>>>> b6df4ad04a8aa0ab8bde74ecb2f0ff952f1c32f4
 </script>
 </body>
 </html>

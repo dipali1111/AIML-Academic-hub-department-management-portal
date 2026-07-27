@@ -15,11 +15,27 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+$pdo = null;
+
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
+>>>>>>> b6df4ad04a8aa0ab8bde74ecb2f0ff952f1c32f4
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
     error_log('Database connection failed: ' . $e->getMessage());
+<<<<<<< HEAD
     die('Database connection failed. Please try again later.');
+=======
+<<<<<<< HEAD
+    die('Database connection failed. Please try again later.');
+=======
+    $pdo = null;
+>>>>>>> 45e2ed514fc6a290a4cb5ac7331c5ed0f6b52cd7
+>>>>>>> b6df4ad04a8aa0ab8bde74ecb2f0ff952f1c32f4
 }
 
 // Site base URL helper (deployment-aware)
